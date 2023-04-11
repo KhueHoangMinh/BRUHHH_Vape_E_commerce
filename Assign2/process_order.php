@@ -111,9 +111,19 @@
                     $errMsg .= "<p>Card type must be VISA, MasterCard, or American Express</p>";
                     array_push($errors,'card_type');
                 }
+
     
-                if(!ctype_alpha($nameOnCard) || strlen($nameOnCard) < 2) {
+                if(strlen($nameOnCard) < 2) {
                     array_push($errors,'err_nameoncard');
+                } else {
+                    $checkNameOnCard = true;
+                    for($i = 0; $i < strlen($nameOnCard); $i++) {
+                        if(!ctype_alpha($nameOnCard[$i]) && $nameOnCard[$i] != " ") {
+                            $checkNameOnCard = false;
+                            break;
+                        }
+                    }
+                    if(!$checkNameOnCard) array_push($errors,'err_nameoncard');
                 }
         
                 switch($cardType) {

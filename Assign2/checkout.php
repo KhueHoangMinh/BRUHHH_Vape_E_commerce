@@ -28,10 +28,10 @@
 
         $errors = [];
         $errMsg = "";
-        if(strlen($fname) > 25 || !ctype_alpha($fname)) {
+        if(strlen($fname) > 25  || strlen($fname) < 2|| !ctype_alpha($fname)) {
             array_push($errors,'err_fname');
         }
-        if(strlen($lname) > 25 || !ctype_alpha($lname)) {
+        if(strlen($lname) > 25 || strlen($lname) < 2 || !ctype_alpha($lname)) {
             array_push($errors,'err_lname');
         }
         if(strlen($email) < 3) {
@@ -48,15 +48,15 @@
                 array_push($errors,'err_email');
             }
         }
-
         $query = "SELECT email FROM users WHERE email = '$email' AND type = 0;";
         $result = mysqli_query($conn, $query);
         if($row = mysqli_fetch_array($result)) {
-            if($row["email"] != $_SESSION["user"]["email"]) {
-                array_push($errors,'err_email_exists_loggedin');
+            if($row["email"] == $email) {
+                array_push($errors,'err_email_exists');
             }
         }
- 
+
+
         
         if(strlen($street) > 40 || strlen($street) < 2) {
             array_push($errors,'err_street');
@@ -66,33 +66,47 @@
         if(strlen($town) > 40 || strlen($town) < 2) {
             array_push($errors,'err_town');
         }
- 
+
         if(!in_array($state,['vic','nsw','qld','nt','wa','sa','tas','act'])) {
-          echo $state;
+            echo $state;
             array_push($errors,'err_state');
         }
- 
+
         if(!is_numeric($postCode) || strlen($postCode) != 4) {
             array_push($errors,'err_postcode');
         }
- 
-        if(!is_numeric($phone) || strlen($phone)>10) {
+
+        if(!is_numeric($phone) || strlen($phone)>10  || strlen($phone) < 2) {
             array_push($errors,'err_phone');
         }
- 
+
         if(!in_array($prefContact,['email','post','phone'])) {
-          echo $prefContact;
+            echo $prefContact;
             array_push($errors, 'err_prefcontact');
         }
- 
- 
+
+
         if(!in_array($cardType,['visa','master','express'])) {
             $errMsg .= "<p>Card type must be VISA, MasterCard, or American Express</p>";
             array_push($errors,'card_type');
         }
- 
+
+
+        if(strlen($nameOnCard) < 2) {
+            array_push($errors,'err_nameoncard');
+        } else {
+            $checkNameOnCard = true;
+            for($i = 0; $i < strlen($nameOnCard); $i++) {
+                if(!ctype_alpha($nameOnCard[$i]) && $nameOnCard[$i] != " ") {
+                    $checkNameOnCard = false;
+                    break;
+                }
+            }
+            if(!$checkNameOnCard) array_push($errors,'err_nameoncard');
+        }
+
         switch($cardType) {
-            case 'visa': 
+            case 'visa':
                 if(!is_numeric($cardNumber) || strlen($cardNumber) != 16 || $cardNumber[0] != '4') {
                     $errMsg .= "<p>Visa card number must has 16 digits and starts with 4</p>";
                     array_push($errors,'visa_number');
@@ -116,6 +130,9 @@
             $errMsg .= "<p>Expiry must be in the format of mm-yy</p>";
             array_push($errors,'expiry');
         } else {
+            if($expiry[0] != '0' && $expiry[0] != '1') {
+                array_push($errors,'expiry_month');
+            }
             if($expiry[0] == '0' && $expiry[1] == '0') {
                 $errMsg .= "<p>Invalid expiry month</p>";
                 array_push($errors,'expiry_month');
@@ -124,8 +141,8 @@
                 array_push($errors,'expiry_month');
             }
         }
- 
-        if(!is_numeric($cvv)) {
+
+        if(!is_numeric($cvv)  || strlen($cvv) < 2) {
             $errMsg .= "<p>CVV must be digits</p>";
             array_push($errors,'cvv');
         }

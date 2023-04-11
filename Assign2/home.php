@@ -26,12 +26,14 @@
                             <img src="images/home/colorfulsmoke.jpg" alt=""/>
                             <img src="images/home/banner.webp" alt=""/>
                         </div>
-                        <h1>The only time you cannot smoke is when you are sleeping!</h1>
+                        <div id="banner-caption">
+                            <h1>The only time you cannot smoke is when you are sleeping!</h1>
+                            <a href="https://youtube.com">Presentation Video</a>
+                        </div>
                     </div>
-                    <div></div>
                 </section>
                 <section>
-                    <div id="introduction">
+                    <div id="introduction" class="home-intro">
                         <div id="intro-background">
                             <h2>Welcome to BRUHHH</h2>
                             <img class="divider" src="images/divider.png" alt=""/>
