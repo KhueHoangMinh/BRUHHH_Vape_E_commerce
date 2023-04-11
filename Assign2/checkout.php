@@ -51,7 +51,7 @@
         $query = "SELECT email FROM users WHERE email = '$email' AND type = 0;";
         $result = mysqli_query($conn, $query);
         if($row = mysqli_fetch_array($result)) {
-            if($row["email"] == $email) {
+            if($row["email"] == $email && $email != $_SESSION["user"]["email"]) {
                 array_push($errors,'err_email_exists');
             }
         }
