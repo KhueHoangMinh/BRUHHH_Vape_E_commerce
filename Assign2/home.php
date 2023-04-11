@@ -28,7 +28,7 @@
                         </div>
                         <div id="banner-caption">
                             <h1>The only time you cannot smoke is when you are sleeping!</h1>
-                            <a href="https://youtube.com">Presentation Video</a>
+                            <a href="https://www.youtube.com/watch?v=v4gRq4qGUEk">Presentation Video</a>
                         </div>
                     </div>
                 </section>

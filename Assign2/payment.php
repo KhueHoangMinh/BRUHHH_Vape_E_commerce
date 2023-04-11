@@ -2,7 +2,7 @@
     include("head.inc");
     include("header.inc");
     include("footer.inc");
-    // if(!isset($_SESSION["user"]) || $_SESSION["user"] == null) {
+    // if(!$_SESSION["user"] || $_SESSION["user"] == null) {
     //     header("Location: index.php");
     // }
     require_once("settings.php");
@@ -42,7 +42,7 @@
                         $itemCount += $cart["quantity"];
                     }
                     if($itemCount == 0) {
-                        if(isset($_SESSION["user"]) && $_SESSION["user"] != null) {
+                        if($_SESSION["user"] && $_SESSION["user"] != null) {
                             header("Location: products.php");
                         } else {
                             header("Location: enquiry.php");
@@ -389,7 +389,7 @@
                     <div class='tab payment' id='cart-tab'>
                         <h1>Payment</h1>
                         <?php 
-                            if(!isset($_SESSION["user"]) || $_SESSION["user"] == null
+                            if(!$_SESSION["user"] || $_SESSION["user"] == null
                             //     isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["email"]) && isset($_POST["street"]) && isset($_POST["town"]) && isset($_POST["state"])
                             //  && isset($_POST["phone"]) && isset($_POST["prefcontact"]) && isset($_POST["postcode"]) && isset($_POST["product"]) && isset($_POST["quantity"]) && isset($_POST["version"]) && isset($_POST["color"])
                              ) {
@@ -401,7 +401,7 @@
                         ?>
                         <div>
                             <?php 
-                            if(!isset($_SESSION["user"]) || $_SESSION["user"] == null) {
+                            if(!$_SESSION["user"] || $_SESSION["user"] == null) {
                                 userInfoTab($conn, null);
                              } else {
                                 userInfoTab($conn, $_SESSION["user"]["user_id"]);

@@ -2,7 +2,7 @@
     include("head.inc");
     include("header.inc");
     include("footer.inc");
-    // if(!isset($_SESSION["user"]) || $_SESSION["user"] == null) {
+    // if(!$_SESSION["user"] || $_SESSION["user"] == null) {
     //     header("Location: index.php");
     // }
     require_once("settings.php");
@@ -433,7 +433,7 @@
                     <div class='tab payment' id='cart-tab'>
                         <h1>Payment</h1>
                         <?php 
-                            if(!isset($_SESSION["user"]) || $_SESSION["user"] == null
+                            if(!$_SESSION["user"] || $_SESSION["user"] == null
                             //     isset($_GET["fname"]) && isset($_GET["lname"]) && isset($_GET["email"]) && isset($_GET["street"]) && isset($_GET["town"]) && isset($_GET["state"])
                             //  && isset($_GET["phone"]) && isset($_GET["prefcontact"]) && isset($_GET["postcode"]) && isset($_GET["product"]) && isset($_GET["quantity"]) && isset($_GET["version"]) && isset($_GET["color"])
                              ) {
@@ -445,7 +445,7 @@
                         ?>
                         <div>
                             <?php 
-                            if(!isset($_SESSION["user"]) || $_SESSION["user"] == null) {
+                            if(!$_SESSION["user"] || $_SESSION["user"] == null) {
                                 userInfoTab($conn, null);
                              } else {
                                 userInfoTab($conn, $_SESSION["user"]["user_id"]);

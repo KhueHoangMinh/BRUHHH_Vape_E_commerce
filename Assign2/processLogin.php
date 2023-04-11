@@ -64,7 +64,7 @@
                 //  save user information to session so the page can "remember" that user was logged in
                 session_start();
                 $_SESSION["user"] = $user;
-                if(isset($_SESSION["user"]) && $_SESSION["user"] != null) {
+                if($_SESSION["user"] && $_SESSION["user"] != null) {
                     header("Location: home.php");
                 }
             } else {

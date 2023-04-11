@@ -1,7 +1,7 @@
 <?php
     include("head.inc");
     include("header.inc");
-    if(isset($_SESSION["user"]) && $_SESSION["user"] != null) {
+    if($_SESSION["user"] && $_SESSION["user"] != null) {
         header("Location: home.php");
     }
 ?>
