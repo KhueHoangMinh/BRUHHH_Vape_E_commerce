@@ -45,45 +45,6 @@
             </a>
             ";
         }
-        if($current == 2) {
-            echo "
-            <a class='nav-item active' href='enquiry.php'>
-                <h3>ENQUIRY</h3>
-            </a>
-            ";
-        } else {
-            echo "
-            <a class='nav-item' href='enquiry.php'>
-                <h3>ENQUIRY</h3>
-            </a>
-            ";
-        }
-        if($current == 3) {
-            echo "
-            <a class='nav-item active' href='about.php'>
-                <h3>ABOUT</h3>
-            </a>
-            ";
-        } else {
-            echo "
-            <a class='nav-item' href='about.php'>
-                <h3>ABOUT</h3>
-            </a>
-            ";
-        }
-        if($current == 4) {
-            echo "
-            <a class='nav-item active' href='enhancements3.php'>
-                <h3>ENHANCEMENTS</h3>
-            </a>
-            ";
-        } else {
-            echo "
-            <a class='nav-item' href='enhancements3.php'>
-                <h3>ENHANCEMENTS</h3>
-            </a>
-            ";
-        }
         if($current == 5) {
             echo "
             <a class='nav-item last-nav-item active'

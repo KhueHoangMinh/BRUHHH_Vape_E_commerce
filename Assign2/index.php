@@ -18,23 +18,6 @@
             <div id="container">
                 <section>
                     <div class="login">
-                        <div class="login-bg">
-                            <div>
-                                <h1>Vape Vape Vape Vape Vape Vape Vape Vape Vape Vape Vape Vape Vape Vape Vape Vape&nbsp;</h1>
-                            </div>
-                            <div>
-                                <h1>Vape is healthy Vape is healthy Vape is healthy Vape is healthy&nbsp;</h1>
-                            </div>
-                            <div>
-                                <h1>Lets make smoking easier Lets make smoking easier Lets make smoking easier Lets make smoking easier&nbsp;</h1>
-                            </div>
-                            <div>
-                                <h1>Why not try some vape Why not try some vape Why not try some vape Why not try some vape&nbsp;</h1>
-                            </div>
-                            <div>
-                                <h1>Vape Vape Vape Vape Vape Vape Vape Vape Vape Vape Vape Vape Vape Vape Vape Vape&nbsp;</h1>
-                            </div>
-                        </div>
                         <div class="login-form-container">
                             <img src="images/logo/png/logo-no-background.png" alt=""/>
                             <!-- Information is sent to processLogin.php for checking and querying -->
