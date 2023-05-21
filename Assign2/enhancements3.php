@@ -112,7 +112,7 @@
                 $user = $result -&gt; fetch_assoc();
                 session_start();
                 $_SESSION["user"] = $user;
-                if($_SESSION["user"] && $_SESSION["user"] != null) {
+                if(array_key_exists("user",$_SESSION) && $_SESSION["user"] != null) {
                     header("Location: home.php");
                 } else {
                     echo $user;
@@ -656,7 +656,7 @@ SELECT * FROM order_products JOIN products ON order_products.product_id = produc
                 $user = $result -&gt; fetch_assoc();
                 session_start();
                 $_SESSION["user"] = $user;
-                if($_SESSION["user"] && $_SESSION["user"] != null) {
+                if(array_key_exists("user",$_SESSION) && $_SESSION["user"] != null) {
                     header("Location: home.php");
                 } else {
                     echo $user;

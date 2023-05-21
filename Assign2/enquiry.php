@@ -23,7 +23,7 @@
                             echo "<p class='error'>Every fields are 
                             required except additional information</p>";
                         }
-                        if($_SESSION["user"] && $_SESSION["user"] != null) {
+                        if(array_key_exists("user",$_SESSION) && $_SESSION["user"] != null) {
                             echo "<p class='error'>You have logged in, please order via <a href='manager.php?page=1'>your profile</a></p>";
                         }
                         ?>
@@ -182,7 +182,7 @@
                         <?php
                             // If user logged in, user cannot submit through Enquiry
                             // and only order through Cart
-                            if($_SESSION["user"] && $_SESSION["user"] != null) {
+                            if(array_key_exists("user",$_SESSION) && $_SESSION["user"] != null) {
                                 echo "disabled";
                             }
                         ?>

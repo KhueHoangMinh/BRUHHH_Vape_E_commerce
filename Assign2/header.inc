@@ -2,7 +2,7 @@
     session_start();
     function header_code($current) {
         $username = "Customer";
-        if($_SESSION["user"] && $_SESSION["user"] != null) {
+        if(array_key_exists("user",$_SESSION) && $_SESSION["user"] != null) {
             $username = $_SESSION["user"]["fname"];
         }
         echo "
@@ -88,7 +88,7 @@
             echo "
             <a class='nav-item last-nav-item active'
              href='";
-             if($_SESSION["user"] && $_SESSION["user"] != null) {
+             if(array_key_exists("user",$_SESSION) && $_SESSION["user"] != null) {
                  echo "manager.php";
              } else {
                 echo "index.php";
@@ -102,7 +102,7 @@
             echo "
             <a class='nav-item last-nav-item' 
             href='";
-            if($_SESSION["user"] && $_SESSION["user"] != null) {
+            if(array_key_exists("user",$_SESSION) && $_SESSION["user"] != null) {
                 echo "manager.php";
             } else {
                echo "index.php";

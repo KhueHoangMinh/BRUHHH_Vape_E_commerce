@@ -1,7 +1,7 @@
 <?php
     include("head.inc");
     include("header.inc");
-    if($_SESSION["user"] && $_SESSION["user"] != null) {
+    if(array_key_exists("user",$_SESSION) && $_SESSION["user"] != null) {
         header("Location: home.php");
     }
 ?>

@@ -42,7 +42,7 @@
                         $itemCount += $cart["quantity"];
                     }
                     if($itemCount == 0) {
-                        if($_SESSION["user"] && $_SESSION["user"] != null) {
+                        if(array_key_exists("user",$_SESSION) && $_SESSION["user"] != null) {
                             header("Location: products.php");
                         } else {
                             header("Location: enquiry.php");
