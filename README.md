@@ -1,4 +1,7 @@
 # BRUHHH_Vape_E_commerce
+## Contributors
+[Luu Tuan Hoang](https://github.com/hwanginhanoi)
+## Installation guide
 E-commerce website to sell vapes, can be adjust to sell other products
 1. Install XAMPP
 2. Open terminal, cd to "xampp/htdocs" and type:
